@@ -1,41 +1,5 @@
-<% include require/header.ejs%>
-<!doctype html>
-<html>
-<head>
-    <title><%=page_title%></title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"><!-- load bootstrap css -->
-    <link rel="stylesheet" media="screen" href="/assets/fonts/font-awesome/font-awesome.min.css"><!-- load fontawesome -->
-    <style>
-        body        { padding-top:80px; 
-                        padding-left: 100px;
-                        padding-right: 100px;
-                    }
-        form{
-            margin-top: 50px;
-        }            
-        ul{
-            margin-top: 0px;
-        }
-        .especificaciones{
-            display: flex;
+<%- include layouts/admin_header.ejs %>
 
-        }
-
-        .proveedor{
-            padding: 7px 10px;
-            list-style: none;
-            display:block;
-            text-aling: center;
-            background-color: rgb(240, 240, 240);
-            border: solid 1px rgb(210,210,210);
-        }
-        ul{
-            margin:0;
-            padding:0;
-        }
-    </style>
-</head>
-<body>
 <div style="display: flex; width:100%">
     <h3 style="width:30%"><%=id_Factura%></h3>
     <h3 style="width:30%">Factura</h3>
@@ -49,5 +13,4 @@
     <h3 style="width:30%">IVA: <%=datos.Iva%></h3>
     <h3 style="width:30%; text-aling: center">Total: <%=total%></h3>
 </div>
-</body>
-</html>
+<%- include layouts/footer.ejs %>
