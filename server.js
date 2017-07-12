@@ -40,10 +40,11 @@ if ('development' == app.get('env')) {
 
 app.use(//EL ERROR DE NO IDENTIFICACION DEL QUERY ERA PORQUE ESTABA MAL CONFIGURADA LA CONEXION 
     connection(mysql,{
-        host: 'localhost',
-        user: 'root',
-        password : 'gallardo271995',
-        database:'belita'
+        host: '192.168.0.11',
+        port : 3306,
+        user: 'apu',
+        password : 'some_pass',
+        database: 'belita'
     },'pool')
 );
 
