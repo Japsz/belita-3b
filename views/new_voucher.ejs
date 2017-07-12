@@ -1,0 +1,74 @@
+<% include require/header.ejs%>
+<!doctype html>
+<html>
+<head>
+    <title><%=page_title%></title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"><!-- load bootstrap css -->
+    <link rel="stylesheet" media="screen" href="/assets/fonts/font-awesome/font-awesome.min.css"><!-- load fontawesome -->
+    <style>
+        body        { padding-top:80px; 
+                        padding-left: 100px;
+                        padding-right: 100px;
+                    }
+        form{
+            margin-top: 50px;
+        }            
+        ul{
+            margin-top: 0px;
+        }
+        .especificaciones{
+            display: flex;
+
+        }
+
+        .proveedor{
+            padding: 7px 10px;
+            list-style: none;
+            display:block;
+            text-aling: center;
+            background-color: rgb(240, 240, 240);
+            border: solid 1px rgb(210,210,210);
+        }
+        ul{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+<form class="form-inline" method="post" action="/generate_voucher">
+  
+
+  <div class="form-group">
+    <label class="sr-only" for="costo">Costo</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input name="costo" id="costo" type="number" class="form-control">
+    </div>
+    <label class="sr-only" for="iva">Costo</label>
+    <div class="input-group">
+      <div class="input-group-addon">%</div>
+      <input name="iva" id="iva" type="number" class="form-control">
+    </div>
+  </div>
+  
+
+  <div class="proveedor" style="margin-left: 65%">
+        <p style="display:block; margin: 15px;">Proveedor:</p>
+        <select name="id_proveedor" class="form-control" style="display:block; margin:15px">
+        <%if(data.length != 0){
+            for(var i=0; i<data.length; i++){%>
+            <option value="<%=data[i].Codigo_proveedor%>"><%=data[i].Nombre_proveedor%></option>
+        <%}
+        }
+        else{%>    
+            <option>No hay proveedores registrados</option>
+        <%}%>    
+        </select>
+  </div>
+  
+
+  <button type="submit" class="btn btn-primary">Generar</button>
+</form>
+</body>
+</html>

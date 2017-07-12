@@ -1,0 +1,90 @@
+<% include require/header.ejs%>
+<!doctype html>
+<html>
+<head>
+    <title><%=page_title%></title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"><!-- load bootstrap css -->
+    <link rel="stylesheet" media="screen" href="/assets/fonts/font-awesome/font-awesome.min.css"><!-- load fontawesome -->
+    <style>
+
+        body        { padding-top:80px; 
+                        padding-left: 100px;
+                        padding-right: 100px;
+                    }
+
+        .input-group{
+                margin-top: 25px;
+        }        
+        .input_product{
+            margin-top: 50px;
+        }    
+        .especificaciones{
+            display:flex;
+        }
+        ul{
+            margin:0;
+            padding:0;
+        }
+        .proveedor{
+        display:flex;
+        }
+
+    </style>
+</head>
+<body>
+<div class="proveedor" style="margin-left: 65%">
+    <p style="display:block; margin: 15px;">Proveedor:</p>
+    <select class="form-control" style="display:block; margin:15px">
+    <%if(data_provider.length != 0){
+        for(var i=0; i<data_provider.length; i++){%>
+        <option><%=data_provider[i].Nombre_proveedor%></option>
+    <%}
+    }
+    else{%>    
+        <option>No hay proveedores registrados</option>
+    <%}%>    
+    </select>
+</div>
+<div class="especificaciones">
+<ul class="list-group" style="display:flex">
+    
+      <li class="list-group-item" style=" background-color: rgb(240, 240, 240);">
+        <div style="margin: 0 0">
+            <h3 style="margin: 10px 0">Codigo del producto</h3>
+        </div>
+      </li>
+      <li class="list-group-item" style=" background-color: rgb(240, 240, 240);">
+       <div style="margin: 0 0">
+            <h3 style="margin: 10px 0">Nombre del producto</h3>
+        </div>
+      </li>
+      <li class="list-group-item" style="background-color: rgb(240, 240, 240)">
+         <div style="margin: 0 0">
+            <h3 style="margin: 10px 0">Cantidad</h3>
+        </div>
+      </li>
+      
+</ul>
+</div>
+<div class="input_product">
+        <label>Ingrese Producto:</label>
+
+        <form method="get" action="/new_product">
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1"></span>
+		  <input name="NombreProduct" type="text" class="form-control" placeholder="Nombre(Tags)" aria-describedby="basic-addon1">
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1"></span>
+		  <input name="CantidadProduct" type="text" class="form-control" placeholder="Cantidad" aria-describedby="basic-addon1">
+		</div>
+
+        <button type="submit" class="btn btn-success dropdown-toggle" style="margin-top: 15px;
+        position: absolute; right: 100px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registrar
+        </button>
+        </form>
+</div>
+
+
+</body>
+</html>

@@ -1,27 +1,20 @@
-<!DOCTYPE html>
+<% include require/header.ejs %>
+<!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
+    <title>Registro completado</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"><!-- load bootstrap css -->
     <link rel="stylesheet" media="screen" href="/assets/fonts/font-awesome/font-awesome.min.css"><!-- load fontawesome -->
     <style>
-        body        { padding-top:80px; }
+        body        {   padding-top:80px; 
+                        padding-left: 100px;
+                        padding-right: 100px;
+                    }
     </style>
-
 </head>
 <body>
-<div class="container">
-
-    <div class="jumbotron text-center">
-        <h2>Observa Ciudadania</h2>
-
-        <p>Login</p>
-
-        <a href="/user_login" class="btn btn-default"><span class="fa fa-user"></span> User Login</a>
-        <a href="/admin_login" class="btn btn-default"><span class="fa fa-user"></span> Admin Login</a>
-    </div>
-
-
-</div>
+	<div class="btn-group" role="group" aria-label="...">
+	  <button type="button" class="btn btn-default"><a href="/input_provider">Nuestros Proveedores</a></button>
+	</div>
 </body>
 </html>
