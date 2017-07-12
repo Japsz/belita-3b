@@ -1,25 +1,22 @@
 exports.new_facture = function(req, res){
+	var input = JSON.parse(JSON.stringify(req.body));
 	req.getConnection(function(err,connection){
-						var cod_factura = req.params.cod_factura;
-		
-					 	
+						var cod_factura = input.cod_factura;
+						var nombre_proveedor = input.nombre_proveedor;
+						
 						connection.query('SELECT * FROM factura WHERE id_Factura = ?', cod_factura,function(err,rows)
 						{
 								if(err)
 										console.log("Error Selecting : %s ",err );
-				 				datos_factura = rows;
-
-				 				connection.query('SELECT * FROM proveedor WHERE id_Proveedor = ?', rows[0].id_Proveedor,function(err,rows)
-								{
-								if(err)
-										console.log("Error Selecting : %s ",err );
 				 					
-										datos_proveedor = rows; 
-								});		
-								res.render('new_facture', {page_title: 'Nueva Factura', data_facture: rows, data_provider: datos_proveedor});					
-						 });
-						 //console.log(query.sql);
+				 				res.render('new_facture', {page_title: 'Nueva Factura', data_facture: rows, name_provider: nombre_proveedor});
+						 		
+						});
+				 				
 				});
+
+
+						 
 }
 exports.list = function(req, res){
 	var list_factura;

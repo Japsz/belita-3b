@@ -1,49 +1,8 @@
-<% include require/header.ejs%>
-<!doctype html>
-<html>
-<head>
-    <title><%=page_title%></title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"><!-- load bootstrap css -->
-    <link rel="stylesheet" media="screen" href="/assets/fonts/font-awesome/font-awesome.min.css"><!-- load fontawesome -->
-    <style>
+<%- include layouts/admin_header.ejs %>
 
-        body        { padding-top:80px; 
-                        padding-left: 100px;
-                        padding-right: 100px;
-                    }
-
-        .input-group{
-                margin-top: 25px;
-        }        
-        .input_product{
-            margin-top: 50px;
-        }    
-        .especificaciones{
-            display:flex;
-        }
-        ul{
-            margin:0;
-            padding:0;
-        }
-        .proveedor{
-        display:flex;
-        }
-
-    </style>
-</head>
-<body>
 <div class="proveedor" style="margin-left: 65%">
-    <p style="display:block; margin: 15px;">Proveedor:</p>
-    <select class="form-control" style="display:block; margin:15px">
-    <%if(data_provider.length != 0){
-        for(var i=0; i<data_provider.length; i++){%>
-        <option><%=data_provider[i].Nombre_proveedor%></option>
-    <%}
-    }
-    else{%>    
-        <option>No hay proveedores registrados</option>
-    <%}%>    
-    </select>
+    <h3 class="pageheader">Proveedor:</h3>
+    <h3 class="pageheader"><%=name_provider%></h3> 
 </div>
 <div class="especificaciones">
 <ul class="list-group" style="display:flex">
@@ -85,6 +44,4 @@
         </form>
 </div>
 
-
-</body>
-</html>
+<%- include layouts/footer.ejs %>

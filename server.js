@@ -63,7 +63,7 @@ app.get('/providers', provider.list);
 app.post('/save_provider', provider.save_provider);
 app.get('/delete_provider/:id_proveedor', provider.delete);
 
-app.get('/new_facture/:cod_factura', facture.new_facture);
+app.post('/new_facture', facture.new_facture);
 app.get('/facture_list', facture.list);
 
 
