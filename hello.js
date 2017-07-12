@@ -38,9 +38,9 @@ app.use(
 
         host: '127.0.0.1',
         user: 'root',
-        password : '1234',
+        password : '',
         port : 3306,
-        database:'Observapp'
+        database:'belita'
 
     },'pool')
 
