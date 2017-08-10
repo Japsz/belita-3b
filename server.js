@@ -20,7 +20,6 @@ var facture = require('./routes/facture');
 var product = require('./routes/product');
 var voucher = require('./routes/voucher');
 var tag = require('./routes/tags');
-var test = require('./routes/test');
 var sale = require('./routes/sale');
 var seller = require('./routes/seller');
 var client = require('./routes/client');
@@ -47,9 +46,9 @@ if ('development' == app.get('env')) {
 
 app.use(//EL ERROR DE NO IDENTIFICACION DEL QUERY ERA PORQUE ESTABA MAL CONFIGURADA LA CONEXION 
     connection(mysql,{
-        host: 'localhost',
-        user: 'root',
-        password : 'gallardo27',
+        host: '192.168.0.14',
+        user: 'apu',
+        password : 'some_pass',
         database:'belita'
     },'pool')
 );
