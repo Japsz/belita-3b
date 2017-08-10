@@ -2,7 +2,7 @@
 <link href="/assets/css/style_voucher.css" rel="stylesheet">
 <script type="text/javascript" src="/assets/js/funciones_voucher.js"></script>
 
-<form class="form-inline" method="post" action="/voucher">
+<form class="form-inline" method="post" action="/generate_voucher">
   
 
       <div class="form-group">
@@ -25,7 +25,7 @@
             <select name="id_proveedor" class="form-control" style="display:block; margin:15px">
             <%if(data.length != 0){
                 for(var i=0; i<data.length; i++){%>
-                <option value="<%=data[i].Codigo_proveedor%>"><%=data[i].Nombre_proveedor%></option>
+                <option value="<%=data[i].Rut_proveedor%>"><%=data[i].Nombre_proveedor%></option>
             <%}
             }
             else{%>    
@@ -37,4 +37,14 @@
           <button type="submit" class="btn btn-primary">Generar</button>
       </div>
 </form>
+
+<script type="text/javascript">
+  $('.buttons button').on('click', function(){
+        $.ajax({
+          type: 'POST',
+          data: {'iva': $('#iva').val(),'costo': $('#costo').val(),'bultos': $('#bultos').val()},
+          url: '/voucher'
+        });      
+  });
+</script>
 <%- include layouts/footer.ejs %>

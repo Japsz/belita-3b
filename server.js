@@ -117,6 +117,7 @@ app.get('/new_sale', sale.new);
 app.get('/render_sale', sale.sale);
 app.post('/add_product', sale.add_product);
 app.post('/remove_product', sale.remove_product);
+app.post('/finish_sale', sale.finish_sale);
 
 
 app.get('/seller_list', seller.list);

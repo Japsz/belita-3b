@@ -30,7 +30,7 @@ INSERT INTO `tags` (`tag`) VALUES
 					var ID = rows.insertId;
 					var tags = data.nombre.split(',');
 					var query = "INSERT INTO tags (tag) VALUES ";
-					var query2 = "INSERT INTO tagProducto (tag, id_producto) VALUES ";
+					var query2 = "INSERT INTO tagproducto (tag, id_producto) VALUES ";
 					for(var i=0; i<tags.length; i++){
 						query += "('" + UpperWord(tags[i]) + "')";
 						query2 += "('" + UpperWord(tags[i]) + "', '" + ID + "')"
