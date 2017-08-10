@@ -90,6 +90,7 @@ app.post('/next_step', facture.next);
 app.get("/new_voucher", voucher.new_voucher);
 app.post('/voucher', voucher.voucher);
 app.post("/generate_voucher", voucher.generate_voucher);
+app.get('/voucher_sale', voucher.voucher_sale);
 
 
 
@@ -138,3 +139,9 @@ app.use(app.router);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('The game starts on port ' + app.get('port'));
 });
+
+
+
+/*-COTIZACION DEL PC
+  -SISTEMA DE COMPUTADORES
+  -*/
