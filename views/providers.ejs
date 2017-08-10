@@ -1,57 +1,74 @@
-<% include require/header.ejs%>
-<!doctype html>
-<html>
-<head>
-    <title><%=page_title%></title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"><!-- load bootstrap css -->
-    <link rel="stylesheet" media="screen" href="/assets/fonts/font-awesome/font-awesome.min.css"><!-- load fontawesome -->
-    <style>
-        body        { padding-top:80px; 
-                        padding-left: 100px;
-                        padding-right: 100px;
-                    }
-        #input_provider_form{
-            margin-top: 50px;
-        }            
-        ul{
-            margin-top: 0px;
-        }
-        .especificaciones{
-            display: flex;
-        }
+<%- include layouts/admin_header.ejs %>
+<link rel="stylesheet" type="text/css" href="/assets/css/style_providers.css">
+<h1 class="page-header">Proveedores:</h1>
 
-        
-        ul{
-            margin:0;
-            padding:0;
-        }
-    </style>
-</head>
-<body>
-<form method="post" action="/save_provider" id="input_provider_form">
+
+<div class="new_provider">
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1"></span>
-        <input type="text" name="providername" class="form-control" placeholder="Registrar Proveedor" aria-describedby="basic-addon1">
+      <span class="input-group-addon" id="sizing-addon2"></span>
+      <input id="Rut" type="number" class="form-control" placeholder="Rut de la Empresa" aria-describedby="sizing-addon2">
     </div>
-    <button type="submit" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Registrar 
-  </button>
-</form>
-<div class="especificaciones">
-<ul class="list-group" style:"width:100%">
-<%for(var i=0; i< data.length; i++){%>
-  <li style="display: flex" class="list-group-item">
-    <div style="margin: 0 0; width: 80%">
-        <h3 style="margin: 10px 0"><%=data[i].Nombre_proveedor%></h3>
+    
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon2"></span>
+      <input id="Nombre" type="text" class="form-control" placeholder="Nombre del Proveedor" aria-describedby="sizing-addon2">
     </div>
-    <div>
-    <form method="get" action="/delete_provider/<%=data[i].Codigo_proveedor%>" style="height: 46px; margin-left: 30px; width: 20%">
-    <button type="submit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-    </form>
-    </div>
-  </li>
-  <%}%>
-</ul>
+    
+    <button id="add_provider" class='btn btn-default' type="button" ><span class='glyphicon glyphicon-plus' aria-hidden='true'></span></button>
 </div>
-</body>
-</html>
+
+
+<div class="col-md-10">
+
+<ul>
+  <li id="plus_provider" class="list-group-item">
+    <span class="glyphicon glyphicon-plus"></span>
+    <span class='glyphicon glyphicon-user' aria-hidden='true'></span>
+  </li>
+</ul>
+
+<div id="container_provider">
+  
+</div>
+</div>
+
+
+<script type="text/javascript">
+    $.ajax({
+      type: 'GET',
+      url: '/render_provider',
+      success: function(data){
+              $('#container_provider').html(data);
+      }
+    });
+
+
+
+    $(document).on('click','#plus_provider', function(e){
+      e.preventDefault();
+      //transform: translateY(700px);
+      $('.new_provider').css('transform', 'translateY(700px)');
+      $('#Rut').focus();
+    });
+    $(document).on('click', '#add_provider', function(e){
+      e.preventDefault();
+      var rut = $("#Rut").val();
+      var nombre = $("#Nombre").val();
+      if(nombre != '' || rut != ''){
+       $.ajax({
+          type: 'POST',
+            data: {'nombre': nombre,'rut': rut},
+            url: '/save_provider',
+            success: function(data){   
+                      $('#container_provider').html(data);
+                  }
+          });
+        }
+      $('.new_provider').css('transform', 'translateY(-500px)');
+      $('#Nombre').val('');
+      $('#Rut').val('');
+    });
+
+</script>
+
+<%- include layouts/footer.ejs %>

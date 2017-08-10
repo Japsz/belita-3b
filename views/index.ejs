@@ -1,20 +1,36 @@
-<% include require/header.ejs %>
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Registro completado</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"><!-- load bootstrap css -->
-    <link rel="stylesheet" media="screen" href="/assets/fonts/font-awesome/font-awesome.min.css"><!-- load fontawesome -->
+    <title>Ingresar</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css" >
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    
+
+    <link href="/assets/css/style_index.css" rel="stylesheet">
+
     <style>
-        body        {   padding-top:80px; 
-                        padding-left: 100px;
-                        padding-right: 100px;
-                    }
+        body        { padding-top:80px; }
     </style>
+
 </head>
 <body>
-	<div class="btn-group" role="group" aria-label="...">
-	  <button type="button" class="btn btn-default"><a href="/input_provider">Nuestros Proveedores</a></button>
-	</div>
+<div class="container">
+
+    <div class="jumbotron text-center">
+        <h2>Observa Ciudadania</h2>
+
+        <p>Login</p>
+
+        <a href="/facture_list" class="btn btn-default"><span class="fa fa-user"></span> Guest Login</a>
+        <a href="/admin_login" class="btn btn-default"><span class="fa fa-user"></span> Admin Login</a>
+    </div>
+
+
+</div>
 </body>
 </html>

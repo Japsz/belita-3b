@@ -1,3 +1,4 @@
+
 //Vista lista de usuarios.
 exports.list = function(req, res){
 	if(req.session.isAdminLogged){
